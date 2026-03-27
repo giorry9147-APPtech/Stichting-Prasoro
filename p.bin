@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+	<html lang="en-US">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Log In &lsaquo; Stichting Prasoro &#8212; WordPress</title>
+	<meta name='robots' content='max-image-preview:large, noindex, noarchive' />
+
+            <script data-no-defer="1" data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer data-cookieconsent="ignore">
+                var ctPublicFunctions = {"_ajax_nonce":"9f9c1c6ecc","_rest_nonce":"f499d79324","_ajax_url":"\/wp-admin\/admin-ajax.php","_rest_url":"https:\/\/stichtingprasoro.com\/wp-json\/","data__cookies_type":"none","data__ajax_type":"rest","data__bot_detector_enabled":"1","data__frontend_data_log_enabled":1,"text__wait_for_decoding":"Decoding the contact data, let us a few seconds to finish. Anti-Spam by CleanTalk","cookiePrefix":"","wprocket_detected":false,"host_url":"stichtingprasoro.com"}
+            </script>
+        
+            <script data-no-defer="1" data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer data-cookieconsent="ignore">
+                var ctPublic = {"_ajax_nonce":"9f9c1c6ecc","settings__forms__check_internal":"0","settings__forms__check_external":"0","settings__forms__force_protection":"0","settings__forms__search_test":"1","settings__data__bot_detector_enabled":"1","settings__comments__form_decoration":"0","settings__sfw__anti_crawler":0,"blog_home":"https:\/\/stichtingprasoro.com\/","pixel__setting":"3","pixel__enabled":false,"pixel__url":"https:\/\/moderate9-v4.cleantalk.org\/pixel\/67428a4ea498e55a8dfc8b752adc9c28.gif","data__email_check_before_post":"1","data__email_check_exist_post":"1","data__cookies_type":"none","data__key_is_ok":true,"data__visible_fields_required":true,"wl_brandname":"Anti-Spam by CleanTalk","wl_brandname_short":"CleanTalk","ct_checkjs_key":1840157110,"emailEncoderPassKey":"240e30b64cace68a342e72dd2a0adb3b","bot_detector_forms_excluded":"W10=","advancedCacheExists":false,"varnishCacheExists":false,"wc_ajax_add_to_cart":false}
+            </script>
+        <link rel='dns-prefetch' href='//moderate.cleantalk.org' />
+<!--n2css--><!--n2js--><script type="text/javascript" data-pagespeed-no-defer src="https://stichtingprasoro.com/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle.min.js?ver=6.49" id="ct_public_functions-js"></script>
+<script type="text/javascript" src="https://moderate.cleantalk.org/ct-bot-detector-wrapper.js?ver=6.49" id="ct_bot_detector-js" defer="defer" data-wp-strategy="defer"></script>
+<link rel='stylesheet' id='dashicons-css' href='https://stichtingprasoro.com/wp-includes/css/dashicons.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='buttons-css' href='https://stichtingprasoro.com/wp-includes/css/buttons.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='forms-css' href='https://stichtingprasoro.com/wp-admin/css/forms.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='l10n-css' href='https://stichtingprasoro.com/wp-admin/css/l10n.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='login-css' href='https://stichtingprasoro.com/wp-admin/css/login.min.css?ver=6.9.4' type='text/css' media='all' />
+<link rel='stylesheet' id='ct_public_css-css' href='https://stichtingprasoro.com/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-public.min.css?ver=6.49' type='text/css' media='all' />
+<link rel='stylesheet' id='ct_email_decoder_css-css' href='https://stichtingprasoro.com/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-email-decoder.min.css?ver=6.49' type='text/css' media='all' />
+	<meta name='referrer' content='strict-origin-when-cross-origin' />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		</head>
+	<body class="login no-js login-action-login wp-core-ui  locale-en-us">
+	<script type="text/javascript">
+/* <![CDATA[ */
+document.body.className = document.body.className.replace('no-js','js');
+/* ]]> */
+</script>
+
+				<h1 class="screen-reader-text">Log In</h1>
+			<div id="login">
+		<h1 role="presentation" class="wp-login-logo"><a href="https://wordpress.org/">Powered by WordPress</a></h1>
+	<div id="login_error" class="notice notice-error"><p><strong>Error:</strong> User registration is currently not allowed.</p></div>
+		<form name="loginform" id="loginform" action="https://stichtingprasoro.com/prasoro/" method="post">
+			<p>
+				<label for="user_login">Username or Email Address</label>
+				<input type="text" name="log" id="user_login" aria-describedby="login_error" class="input" value="" size="20" autocapitalize="off" autocomplete="username" required="required" />
+			</p>
+
+			<div class="user-pass-wrap">
+				<label for="user_pass">Password</label>
+				<div class="wp-pwd">
+					<input type="password" name="pwd" id="user_pass" aria-describedby="login_error" class="input password-input" value="" size="20" autocomplete="current-password" spellcheck="false" required="required" />
+					<button type="button" class="button button-secondary wp-hide-pw hide-if-no-js" data-toggle="0" aria-label="Show password">
+						<span class="dashicons dashicons-visibility" aria-hidden="true"></span>
+					</button>
+				</div>
+			</div>
+						<p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme" value="forever"  /> <label for="rememberme">Remember Me</label></p>
+			<p class="submit">
+				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Log In" />
+									<input type="hidden" name="redirect_to" value="https://stichtingprasoro.com/wp-admin/" />
+									<input type="hidden" name="testcookie" value="1" />
+			</p>
+		</form>
+
+					<p id="nav">
+				<a class="wp-login-lost-password" href="https://stichtingprasoro.com/prasoro/?action=lostpassword">Lost your password?</a>			</p>
+			<script type="text/javascript">
+/* <![CDATA[ */
+function wp_attempt_focus() {setTimeout( function() {try {d = document.getElementById( "user_login" );d.focus(); d.select();} catch( er ) {}}, 200);}
+wp_attempt_focus();
+if ( typeof wpOnload === 'function' ) { wpOnload() }
+/* ]]> */
+</script>
+		<p id="backtoblog">
+			<a href="https://stichtingprasoro.com/">&larr; Go to Stichting Prasoro</a>		</p>
+			</div>
+		
+	<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/clipboard.min.js?ver=2.0.11" id="clipboard-js"></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="zxcvbn-async-js-extra">
+/* <![CDATA[ */
+var _zxcvbnSettings = {"src":"https://stichtingprasoro.com/wp-includes/js/zxcvbn.min.js"};
+//# sourceURL=zxcvbn-async-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/zxcvbn-async.min.js?ver=1.0" id="zxcvbn-async-js"></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/dist/hooks.min.js?ver=dd5603f07f9220ed27f1" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/dist/i18n.min.js?ver=c26c3dc7bed366793375" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+//# sourceURL=wp-i18n-js-after
+/* ]]> */
+</script>
+<script type="text/javascript" id="password-strength-meter-js-extra">
+/* <![CDATA[ */
+var pwsL10n = {"unknown":"Password strength unknown","short":"Very weak","bad":"Weak","good":"Medium","strong":"Strong","mismatch":"Mismatch"};
+//# sourceURL=password-strength-meter-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-admin/js/password-strength-meter.min.js?ver=6.9.4" id="password-strength-meter-js"></script>
+<script src='https://stichtingprasoro.com/wp-content/plugins/the-events-calendar/common/src/resources/js/underscore-before.js'></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/underscore.min.js?ver=1.13.7" id="underscore-js"></script>
+<script src='https://stichtingprasoro.com/wp-content/plugins/the-events-calendar/common/src/resources/js/underscore-after.js'></script>
+<script type="text/javascript" id="wp-util-js-extra">
+/* <![CDATA[ */
+var _wpUtilSettings = {"ajax":{"url":"/wp-admin/admin-ajax.php"}};
+//# sourceURL=wp-util-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/wp-util.min.js?ver=6.9.4" id="wp-util-js"></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/dist/dom-ready.min.js?ver=f77871ff7694fffea381" id="wp-dom-ready-js"></script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-includes/js/dist/a11y.min.js?ver=cb460b4676c94bd228ed" id="wp-a11y-js"></script>
+<script type="text/javascript" id="user-profile-js-extra">
+/* <![CDATA[ */
+var userProfileL10n = {"user_id":"0","nonce":"bda0deacd6"};
+//# sourceURL=user-profile-js-extra
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://stichtingprasoro.com/wp-admin/js/user-profile.min.js?ver=6.9.4" id="user-profile-js"></script>
+	</body>
+	</html>
+	

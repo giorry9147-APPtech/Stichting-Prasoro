@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stichting Prasoro | Geef een kind een toekomst</title>
+  <meta name="description" content="Stichting Prasoro zet zich sinds 2006 in voor kinderen in nood in Suriname. Doneer nu en maak direct impact.">
+  <style>
+    :root {
+      --bg: #f7f8f6;
+      --paper: #ffffff;
+      --text: #17221d;
+      --muted: #5c6b63;
+      --brand: #d4663d;
+      --brand-dark: #b7512d;
+      --green: #2f8b5d;
+      --yellow: #fbbc05;
+      --shadow: 0 10px 28px rgba(23, 34, 29, 0.12);
+      --radius: 18px;
+      --maxw: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      min-height: 48px;
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(212, 102, 61, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-dark);
+    }
+
+    .btn-ghost {
+      background: #fff;
+      color: var(--brand);
+      border: 1px solid #f0d5cb;
+    }
+
+    .btn-ghost-white {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-ghost-white:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(8px);
+      background: rgba(247, 248, 246, 0.9);
+      border-bottom: 1px solid #e4e8e5;
+    }
+
+    .header-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+
+    .nav {
+      display: none;
+      gap: 16px;
+      color: #3b4a43;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .lang-pill {
+      display: flex;
+      align-items: center;
+      background: #e8ede9;
+      border-radius: 999px;
+      padding: 3px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .lang-opt {
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      user-select: none;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+
+    .lang-opt.active {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-donate {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 2.5px;
+      background: #3b4a43;
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(8.75px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-8.75px) rotate(-45deg);
+    }
+
+    .mob-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 19;
+      background: rgba(247, 248, 246, 0.97);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      padding: 88px 24px 32px;
+      transform: translateX(105%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow-y: auto;
+    }
+
+    .mob-nav.open {
+      transform: translateX(0);
+    }
+
+    .mob-nav a {
+      display: flex;
+      align-items: center;
+      padding: 18px 0;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      border-bottom: 1px solid #e4ece6;
+      text-decoration: none;
+    }
+
+    .mob-nav .mob-donate {
+      margin-top: 24px;
+    }
+
+    .mob-nav .mob-donate .btn {
+      width: 100%;
+      min-height: 52px;
+      font-size: 1.05rem;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 74vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(180deg, rgba(10, 14, 12, 0.25), rgba(10, 14, 12, 0.55)), url('/images/home/school-kinderen.png');
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 70px;
+      color: #fff;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(1.95rem, 8vw, 3.8rem);
+      line-height: 1.05;
+      max-width: 760px;
+    }
+
+    .hero p {
+      margin: 14px 0 24px;
+      max-width: 680px;
+      font-size: clamp(1rem, 3.9vw, 1.35rem);
+      color: #f5f7f5;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .trust-bar {
+      margin-top: -28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .trust-item {
+      background: var(--paper);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #33423b;
+      border: 1px solid #e6ece7;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .trust-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      color: var(--brand);
+      margin-top: 1px;
+    }
+
+    .section {
+      padding: 46px 0;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.45rem, 6.2vw, 2.25rem);
+      line-height: 1.15;
+    }
+
+    .section .lead {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 760px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--paper);
+      border: 1px solid #e7ece9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .project-body {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-body h3 {
+      margin: 0 0 8px;
+      font-size: 1.13rem;
+      line-height: 1.25;
+    }
+
+    .project-body p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .project-body > .btn {
+      margin-top: auto;
+    }
+
+    .project-progress {
+      margin: 0 0 14px;
+    }
+
+    .progress-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      margin-bottom: 5px;
+    }
+
+    .progress-meta .raised {
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    .progress-meta .goal {
+      color: var(--muted);
+    }
+
+    .progress-track {
+      height: 8px;
+      background: #e8ede9;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), #4db87a);
+      transition: width 0.6s ease;
+    }
+
+    .project-progress .new-badge {
+      display: inline-block;
+      background: var(--yellow);
+      color: #6b4a00;
+      font-size: 0.72rem;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 2px 9px;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .impact-item {
+      background: #eef5f0;
+      border: 1px solid #d7e7dc;
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .impact-item strong {
+      display: block;
+      color: var(--green);
+      font-size: 1.12rem;
+      margin-bottom: 4px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .step {
+      background: var(--paper);
+      border: 1px solid #e5ece8;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .step .nr {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #f6ddd4;
+      color: #8f3f22;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .story-visual {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #deebe2;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .story-visual img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .story-content {
+      background: var(--paper);
+      border: 1px solid #e6ece8;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .story-content h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .story-content p,
+    .story-content li {
+      color: #32423b;
+      font-size: 0.98rem;
+    }
+
+    .story-content ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+    }
+
+    .cta-final {
+      background: linear-gradient(130deg, #173328 0%, #244636 52%, #173328 100%);
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px 18px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-final h2 {
+      margin: 0 0 10px;
+    }
+
+    .cta-final p {
+      margin: 0 0 18px;
+      color: #ecf5ef;
+    }
+
+    .bank-box {
+      margin-top: 16px;
+      text-align: left;
+      background: #fff;
+      color: #22322c;
+      border-radius: 14px;
+      padding: 14px;
+    }
+
+    .bank-box p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    /* COMMUNITY SECTIONS */
+    .community-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .community-card {
+      background: var(--paper);
+      border: 1px solid #e4ece6;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .community-card.donor-card {
+      border-top: 4px solid var(--green);
+    }
+
+    .community-card.volunteer-card {
+      border-top: 4px solid var(--brand);
+    }
+
+    .community-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .community-icon.green { background: #e6f3ec; color: var(--green); }
+    .community-icon.orange { background: #faeee8; color: var(--brand); }
+
+    .community-card h3 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .community-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .community-card .btn-outline-green {
+      background: #fff;
+      color: var(--green);
+      border: 1.5px solid var(--green);
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+    }
+
+    .community-card .btn-outline-green:hover {
+      background: #eef5f0;
+    }
+
+    .community-card .btn-outline-orange {
+      background: #fff;
+      color: var(--brand);
+      border: 1.5px solid var(--brand);
+      border-radius: 999px;
+      padding: 11px 22px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+    }
+
+    .community-card .btn-outline-orange:hover {
+      background: #faeee8;
+    }
+
+    .community-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .agenda-item {
+      background: #f7f8f6;
+      border: 1px solid #e2e9e4;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+    }
+
+    .agenda-item .agenda-date {
+      display: block;
+      font-weight: 800;
+      color: var(--brand);
+      font-size: 0.8rem;
+      margin-bottom: 2px;
+    }
+
+    .agenda-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .site-footer {
+      padding: 28px 0 90px;
+      text-align: center;
+      color: #56655e;
+      font-size: 0.92rem;
+    }
+
+    .sticky-donate {
+      position: fixed;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      z-index: 25;
+    }
+
+    .sticky-donate .btn {
+      width: 100%;
+      min-height: 52px;
+      font-size: 1.02rem;
+    }
+
+    /* WHATSAPP WIDGET */
+    .wa-widget {
+      position: fixed;
+      right: 16px;
+      bottom: 80px;
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .wa-bubble {
+      background: #25d366;
+      color: #fff;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+      cursor: pointer;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      border: 0;
+      text-decoration: none;
+    }
+
+    .wa-bubble:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+    }
+
+    .wa-tooltip {
+      background: #fff;
+      color: #17221d;
+      border-radius: 12px;
+      padding: 9px 14px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      box-shadow: 0 4px 16px rgba(23,34,29,0.14);
+      border: 1px solid #e4ece6;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+    }
+
+    .wa-widget:hover .wa-tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @media (min-width: 760px) {
+      .wa-widget {
+        bottom: 28px;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .wa-tooltip {
+        order: -1;
+      }
+    }
+
+    @media (min-width: 760px) {
+      .nav {
+        display: flex;
+      }
+
+      .header-donate {
+        display: inline-flex;
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .mob-nav {
+        display: none !important;
+      }
+
+      .hero-inner {
+        padding: 70px 0 84px;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1000px) {
+      .project-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .impact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .story-grid {
+        grid-template-columns: 0.86fr 1.14fr;
+      }
+
+      .community-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-content {
+        padding: 22px;
+      }
+
+      .sticky-donate {
+        display: none;
+      }
+
+      .site-footer {
+        padding-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="/wp-content/uploads/2023/12/Prasoro_logo.png" alt="Logo Stichting Prasoro">
+        <span>Stichting Prasoro</span>
+      </a>
+      <nav class="nav" aria-label="Hoofdmenu">
+        <a href="#projecten" data-i18n="nav-projects">Projecten</a>
+        <a href="#impact">Impact</a>
+        <a href="#verhaal" data-i18n="nav-story">Verhaal</a>
+        <a href="/bestuur/" data-i18n="nav-board">Bestuur</a>
+        <a href="#donateurs">Community</a>
+        <a href="#doneren" data-i18n="nav-donate">Doneren</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+        <div class="lang-pill" id="langPill" role="group" aria-label="Taal selecteren">
+          <span class="lang-opt active" data-lang="nl">NL</span>
+          <span class="lang-opt" data-lang="en">EN</span>
+        </div>
+        <a class="btn btn-primary header-donate" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu openen" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mob-nav" id="mobNav" aria-label="Mobiel menu">
+    <a href="#projecten" data-i18n="nav-projects">Projecten</a>
+    <a href="#impact">Impact</a>
+    <a href="#verhaal" data-i18n="nav-story">Verhaal</a>
+    <a href="/bestuur/" data-i18n="nav-board">Bestuur</a>
+    <a href="#donateurs">Community</a>
+    <a href="#doneren" data-i18n="nav-donate">Doneren</a>
+    <div class="mob-donate">
+      <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="hero-kicker" data-i18n="hero-kicker">Sinds 2006 actief in Suriname</span>
+        <h1 data-i18n="hero-h1">Geef een kind een toekomst.</h1>
+        <p data-i18n="hero-p">Sinds 2006 zorgen wij voor de meest kwetsbare kinderen in Suriname, met liefde, onderwijs en een veilig thuis.</p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+          <a class="btn btn-ghost-white" href="#vrijwilliger" data-i18n="hero-btn-volunteer">Vrijwilliger worden</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l4 4H20v4l2 2-2 2v4h-4l-4 4-4-4H4v-4L2 12l2-2V6h4z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div data-i18n="trust-anbi"><strong>ANBI status</strong> met RSIN 8239.72.562</div>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <div data-i18n="trust-impact"><strong>Directe impact</strong> op voeding, zorg en onderwijs</div>
+        </div>
+        <div class="trust-item">
+          <svg class="trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><circle cx="17" cy="8" r="3"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          <div data-i18n="trust-team"><strong>Kleine organisatie</strong> met persoonlijke betrokkenheid</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projecten" class="section">
+      <div class="container">
+        <h2 data-i18n="projects-h2">Projecten en recente acties</h2>
+        <p class="lead" data-i18n="projects-lead">Dezelfde verhalen van de stichting, nu overzichtelijk en scanbaar zodat bezoekers sneller kunnen kiezen om te helpen.</p>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <img src="/images/suriname-paramaribo-schoolgirls-wearing-their-school-uniforms-in-a-primary-school-2XC3X7W.jpg" alt="Moro Skoro, Baka Skoro – schoolspullen actie">
+            <div class="project-body">
+              <span class="new-badge" data-i18n="proj4-badge">NIEUW</span>
+              <h3 data-i18n="proj4-h3">Moro Skoro, Baka Skoro</h3>
+              <p data-i18n="proj4-p">"Meer naar school, terug naar school" — wij zamelen schoolspullen in zodat elk kind voorbereid het nieuwe schooljaar begint.</p>
+              <div class="project-progress">
+                <div class="progress-meta">
+                  <span class="raised" data-i18n="proj4-raised">€ 420 opgehaald</span>
+                  <span class="goal" data-i18n="proj4-goal">doel: € 1.200</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width: 35%"></div></div>
+              </div>
+              <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="/wp-content/uploads/2024/01/PHOTO-2023-12-06-18-48-54-1.jpg" alt="Aantreden nieuw bestuur Stichting Prasoro">
+            <div class="project-body">
+              <h3 data-i18n="proj1-h3">Aantreden nieuw bestuur Stichting Prasoro</h3>
+              <p data-i18n="proj1-p">Nieuw bestuur aangetreden in oktober 2023 met een gedeelde missie: kwetsbare kinderen betere kansen bieden.</p>
+              <div class="project-progress">
+                <div class="progress-meta">
+                  <span class="raised" data-i18n="proj1-raised">€ 820 opgehaald</span>
+                  <span class="goal" data-i18n="proj1-goal">doel: € 1.000</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width: 82%"></div></div>
+              </div>
+              <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="/wp-content/uploads/2024/01/PHOTO-2023-12-14-10-32-21.jpg" alt="Bingo Night Fundraising">
+            <div class="project-body">
+              <h3 data-i18n="proj2-h3">Bingo Night Fundraising</h3>
+              <p data-i18n="proj2-p">Op 16 mei, 27 juni en 22 augustus 2024 organiseerde Stichting Prasoro drie succesvolle Bingo Night avonden.</p>
+              <div class="project-progress">
+                <div class="progress-meta">
+                  <span class="raised" data-i18n="proj2-raised">€ 2.400 opgehaald</span>
+                  <span class="goal" data-i18n="proj2-goal">doel: € 3.000</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width: 80%"></div></div>
+              </div>
+              <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="/wp-content/uploads/2017/03/About-bg.jpg" alt="Bingo Nights hartverwarmende steun">
+            <div class="project-body">
+              <h3 data-i18n="proj3-h3">Bingo Nights: Hartverwarmende steun</h3>
+              <p data-i18n="proj3-p">Drie avonden die samen SRD 14.000 opleverden voor de kinderen — hartverwarmende steun van donateurs.</p>
+              <div class="project-progress">
+                <div class="progress-meta">
+                  <span class="raised" data-i18n="proj3-raised">€ 1.760 opgehaald</span>
+                  <span class="goal" data-i18n="proj3-goal">doel: € 2.000</span>
+                </div>
+                <div class="progress-track"><div class="progress-fill" style="width: 88%"></div></div>
+              </div>
+              <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="section">
+      <div class="container">
+        <h2 data-i18n="impact-h2">Wat jouw donatie mogelijk maakt</h2>
+        <p class="lead" data-i18n="impact-lead">Uw steun is meer dan een donatie; het is een investering in de toekomst van kinderen in nood.</p>
+
+        <div class="impact-grid">
+          <div class="impact-item" data-i18n="impact1">
+            <strong>€25</strong>
+            Helpt met basisvoeding en dagelijkse benodigdheden voor kinderen in opvang.
+          </div>
+          <div class="impact-item" data-i18n="impact2">
+            <strong>€50</strong>
+            Draagt bij aan schoolmateriaal en onderwijsbegeleiding.
+          </div>
+          <div class="impact-item" data-i18n="impact3">
+            <strong>€100+</strong>
+            Ondersteunt structureel zorg, veiligheid en ontwikkeling.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="steps-h2">Hoe doneren werkt</h2>
+        <p class="lead" data-i18n="steps-lead">Eenvoudig, transparant en snel. Zo maakt u direct verschil.</p>
+
+        <div class="steps">
+          <div class="step">
+            <span class="nr">1</span>
+            <h3 data-i18n="step1-h3">Kies je bijdrage</h3>
+            <p data-i18n="step1-p">Kies een bedrag dat past bij uw situatie. Elke bijdrage helpt.</p>
+          </div>
+          <div class="step">
+            <span class="nr">2</span>
+            <h3 data-i18n="step2-h3">Doneer via bankrekening</h3>
+            <p data-i18n="step2-p">Maak uw donatie over naar een van de officiële rekeningen van Stichting Prasoro.</p>
+          </div>
+          <div class="step">
+            <span class="nr">3</span>
+            <h3 data-i18n="step3-h3">Zie de impact terug</h3>
+            <p data-i18n="step3-p">Via updates en verhalen ziet u hoe uw steun het leven van kinderen verandert.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="verhaal" class="section">
+      <div class="container story-grid">
+        <figure class="story-visual">
+          <img src="/wp-content/uploads/2024/03/Stichting-Prasoro-NL-1125x1500.png" alt="Stichting Prasoro verhaal en missie">
+        </figure>
+
+        <article class="story-content">
+          <h2 data-i18n="verhaal-h2">Het verhaal van Stichting Prasoro</h2>
+          <p>De Stichting draagt de naam "STICHTING PRASORO, VOOR HET KIND IN NOOD" opgericht op 4 augustus 2006. De Stichting is gevestigd te Paramaribo en strekt haar werkzaamheden uit over geheel Suriname. De Stichting is opgericht voor onbepaalde tijd.</p>
+          <p>Stel je een wereld voor waarin elk kind, ongeacht hun verleden, de kans krijgt om te bloeien, omringd door liefde, onderwijs en een veilig thuis. Dit is de belofte die "Stichting Prasoro voor het kind in nood" waarmaakt, elke dag, voor de meest kwetsbare kinderen in Suriname.</p>
+          <p>Sinds 2006 hebben we ons toegewijd aan het bieden van een warme, liefdevolle omgeving aan maximaal 35 kinderen in nood. We bieden hen niet alleen een dak boven hun hoofd, maar ook de hoop op een betere toekomst, gedreven door onderwijs, zorg en toewijding.</p>
+          <p>Uw steun als "Vriend van Stichting Prasoro voor het kind in nood" kan werelden van verschil maken. Het is meer dan een donatie; het is een investering in de toekomst van deze kinderen.</p>
+
+          <h3 data-i18n="verhaal-h3">Wat maakt uw steun bijzonder?</h3>
+          <ul>
+            <li><strong>Regelmatige updates:</strong> Recente nieuwsberichten over vooruitgang, prestaties en activiteiten.</li>
+            <li><strong>Transparantie:</strong> Inzicht in hoe uw bijdrage wordt gebruikt en welke impact die maakt.</li>
+            <li><strong>Dankbaarheid en erkenning:</strong> Uw steun wordt gewaardeerd en zichtbaar gemaakt, als u dat wilt.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="donateurs" class="section">
+      <div class="container">
+        <h2 data-i18n="community-h2">Onze gemeenschap</h2>
+        <p class="lead" data-i18n="community-lead">Of u nu financieel steunt of tijd en energie inzet — samen maken we het verschil voor kinderen in Suriname.</p>
+
+        <div class="community-grid">
+
+          <div class="community-card donor-card">
+            <div class="community-icon green">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            </div>
+            <h3 data-i18n="donor-h3">Donateurs</h3>
+            <p data-i18n="donor-p">Bent u donateur van Stichting Prasoro? Via ons donateursportaal kunt u uw bijdragen inzien, kwartaalrapportages downloaden en uw gegevens beheren.</p>
+            <ul style="margin: 4px 0 0; padding-left: 18px; color: var(--muted); font-size: 0.94rem;">
+              <li>Inzage in uw donatiehistorie</li>
+              <li>Kwartaal- en jaarrapportages</li>
+              <li>Fiscale jaaroverzichten (ANBI)</li>
+              <li>Updates over projecten die u steunt</li>
+            </ul>
+            <div class="community-links">
+              <a class="btn-outline-green" href="https://stichtingprasoro.com/donateurs-login/" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                <span data-i18n="donor-btn-login">Inloggen donateursportaal</span>
+              </a>
+              <a class="btn-outline-green" href="/#doneren">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span data-i18n="donor-btn-new">Nieuw donateur worden</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="community-card volunteer-card" id="vrijwilliger">
+            <div class="community-icon orange">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 data-i18n="volunteer-h3">Vrijwilligers</h3>
+            <p data-i18n="volunteer-p">Wilt u uw tijd en talent inzetten voor Prasoro? Bekijk de projectagenda en meld u aan voor activiteiten waarbij we extra handen kunnen gebruiken.</p>
+
+            <div class="agenda-list">
+              <div class="agenda-item">
+                <span class="agenda-date">Apr 2026</span>
+                <span data-i18n="agenda1">Schoolspullen actie — Moro Skoro, Baka Skoro</span>
+              </div>
+              <div class="agenda-item">
+                <span class="agenda-date">Jun 2026</span>
+                <span data-i18n="agenda2">Bingo Night Fundraising voorbereiding</span>
+              </div>
+              <div class="agenda-item">
+                <span class="agenda-date">Aug 2026</span>
+                <span data-i18n="agenda3">Zomerkamp voor kinderen in Paramaribo</span>
+              </div>
+            </div>
+
+            <div class="community-links">
+              <a class="btn-outline-orange" href="https://stichtingprasoro.com/vrijwilligers/" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span data-i18n="volunteer-btn-agenda">Projectagenda bekijken</span>
+              </a>
+              <a class="btn-outline-orange" href="https://stichtingprasoro.com/vrijwilliger-aanmelden/" target="_blank" rel="noopener">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                <span data-i18n="volunteer-btn-signup">Vrijwilliger aanmelden</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="doneren" class="section">
+      <div class="container">
+        <div class="cta-final">
+          <h2 data-i18n="cta-h2">Elke dag telt voor een kind in nood</h2>
+          <p data-i18n="cta-p">Doneer vandaag en help direct mee aan voeding, onderwijs, zorg en een veilige toekomst voor kinderen in Suriname.</p>
+          <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+
+          <div class="bank-box">
+            <p><strong>REPUBLIC BANK SURINAME</strong></p>
+            <p>SRD - 0.1.20.38.6346<br>USD - 0.7.95.07.5137<br>EUR - 0.7.95.07.5218</p>
+            <p>BIC/SWIFT: RBNKSRPA XXX</p>
+            <p><strong>HAKRINBANK - SRD - 20.65.82.397</strong></p>
+            <p>Stichting Prasoro voor het kind in nood, Kinderdorpweg 2, Paramaribo - Suriname</p>
+            <p>ANBI status en sinds 2012 RSIN fiscaal nummer: <strong>8239.72.562</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2024 Stichting Prasoro | Alle Rechten Voorbehouden</p>
+      <p><a href="https://www.facebook.com/stichtingprasoro/" target="_blank" rel="noopener">Volg ons op Facebook</a></p>
+    </div>
+  </footer>
+
+  <div class="sticky-donate">
+    <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+  </div>
+
+  <script>
+  (function () {
+    var T = {
+      nl: {
+        'nav-projects': 'Projecten', 'nav-story': 'Verhaal', 'nav-board': 'Bestuur', 'nav-donate': 'Doneren',
+        'cta-donate': 'Doneer nu',
+        'hero-kicker': 'Sinds 2006 actief in Suriname',
+        'hero-h1': 'Geef een kind een toekomst.',
+        'hero-p': 'Sinds 2006 zorgen wij voor de meest kwetsbare kinderen in Suriname, met liefde, onderwijs en een veilig thuis.',
+        'hero-btn-volunteer': 'Vrijwilliger worden',
+        'trust-anbi': '<strong>ANBI status</strong> met RSIN 8239.72.562',
+        'trust-impact': '<strong>Directe impact</strong> op voeding, zorg en onderwijs',
+        'trust-team': '<strong>Kleine organisatie</strong> met persoonlijke betrokkenheid',
+        'projects-h2': 'Projecten en recente acties',
+        'projects-lead': 'Dezelfde verhalen van de stichting, nu overzichtelijk en scanbaar zodat bezoekers sneller kunnen kiezen om te helpen.',
+        'proj1-h3': 'Aantreden nieuw bestuur Stichting Prasoro',
+        'proj1-p': 'Nieuw bestuur aangetreden in oktober 2023 met een gedeelde missie: kwetsbare kinderen betere kansen bieden.',
+        'proj1-raised': '\u20ac 820 opgehaald', 'proj1-goal': 'doel: \u20ac 1.000',
+        'proj2-h3': 'Bingo Night Fundraising',
+        'proj2-p': 'Op 16 mei, 27 juni en 22 augustus 2024 organiseerde Stichting Prasoro drie succesvolle Bingo Night avonden.',
+        'proj2-raised': '\u20ac 2.400 opgehaald', 'proj2-goal': 'doel: \u20ac 3.000',
+        'proj3-h3': 'Bingo Nights: Hartverwarmende steun',
+        'proj3-p': 'Drie avonden die samen SRD 14.000 opleverden voor de kinderen \u2014 hartverwarmende steun van donateurs.',
+        'proj3-raised': '\u20ac 1.760 opgehaald', 'proj3-goal': 'doel: \u20ac 2.000',
+        'proj4-badge': 'NIEUW', 'proj4-h3': 'Moro Skoro, Baka Skoro',
+        'proj4-p': '"Meer naar school, terug naar school" \u2014 wij zamelen schoolspullen in zodat elk kind voorbereid het nieuwe schooljaar begint.',
+        'proj4-raised': '\u20ac 420 opgehaald', 'proj4-goal': 'doel: \u20ac 1.200',
+        'impact-h2': 'Wat jouw donatie mogelijk maakt',
+        'impact-lead': 'Uw steun is meer dan een donatie; het is een investering in de toekomst van kinderen in nood.',
+        'impact1': '<strong>\u20ac25</strong> Helpt met basisvoeding en dagelijkse benodigdheden voor kinderen in opvang.',
+        'impact2': '<strong>\u20ac50</strong> Draagt bij aan schoolmateriaal en onderwijsbegeleiding.',
+        'impact3': '<strong>\u20ac100+</strong> Ondersteunt structureel zorg, veiligheid en ontwikkeling.',
+        'steps-h2': 'Hoe doneren werkt',
+        'steps-lead': 'Eenvoudig, transparant en snel. Zo maakt u direct verschil.',
+        'step1-h3': 'Kies je bijdrage', 'step1-p': 'Kies een bedrag dat past bij uw situatie. Elke bijdrage helpt.',
+        'step2-h3': 'Doneer via bankrekening', 'step2-p': 'Maak uw donatie over naar een van de offici\u00eble rekeningen van Stichting Prasoro.',
+        'step3-h3': 'Zie de impact terug', 'step3-p': 'Via updates en verhalen ziet u hoe uw steun het leven van kinderen verandert.',
+        'verhaal-h2': 'Het verhaal van Stichting Prasoro', 'verhaal-h3': 'Wat maakt uw steun bijzonder?',
+        'community-h2': 'Onze gemeenschap',
+        'community-lead': 'Of u nu financieel steunt of tijd en energie inzet \u2014 samen maken we het verschil voor kinderen in Suriname.',
+        'donor-h3': 'Donateurs',
+        'donor-p': 'Bent u donateur van Stichting Prasoro? Via ons donateursportaal kunt u uw bijdragen inzien, kwartaalrapportages downloaden en uw gegevens beheren.',
+        'donor-btn-login': 'Inloggen donateursportaal', 'donor-btn-new': 'Nieuw donateur worden',
+        'volunteer-h3': 'Vrijwilligers',
+        'volunteer-p': 'Wilt u uw tijd en talent inzetten voor Prasoro? Bekijk de projectagenda en meld u aan voor activiteiten waarbij we extra handen kunnen gebruiken.',
+        'agenda1': 'Schoolspullen actie \u2014 Moro Skoro, Baka Skoro',
+        'agenda2': 'Bingo Night Fundraising voorbereiding',
+        'agenda3': 'Zomerkamp voor kinderen in Paramaribo',
+        'volunteer-btn-agenda': 'Projectagenda bekijken', 'volunteer-btn-signup': 'Vrijwilliger aanmelden',
+        'cta-h2': 'Elke dag telt voor een kind in nood',
+        'cta-p': 'Doneer vandaag en help direct mee aan voeding, onderwijs, zorg en een veilige toekomst voor kinderen in Suriname.',
+        'wa-tooltip': 'Stel uw vraag via WhatsApp'
+      },
+      en: {
+        'nav-projects': 'Projects', 'nav-story': 'Story', 'nav-board': 'Board', 'nav-donate': 'Donate',
+        'cta-donate': 'Donate now',
+        'hero-kicker': 'Active in Suriname since 2006',
+        'hero-h1': 'Give a child a future.',
+        'hero-p': 'Since 2006 we have been caring for the most vulnerable children in Suriname, with love, education and a safe home.',
+        'hero-btn-volunteer': 'Become a volunteer',
+        'trust-anbi': '<strong>ANBI status</strong> with RSIN 8239.72.562',
+        'trust-impact': '<strong>Direct impact</strong> on food, care and education',
+        'trust-team': '<strong>Small organisation</strong> with personal involvement',
+        'projects-h2': 'Projects and recent activities',
+        'projects-lead': 'Real stories from the foundation, clearly organised so visitors can quickly choose to help.',
+        'proj1-h3': 'New board of Stichting Prasoro',
+        'proj1-p': 'New board took office in October 2023 with a shared mission: giving vulnerable children better opportunities.',
+        'proj1-raised': '\u20ac 820 raised', 'proj1-goal': 'goal: \u20ac 1,000',
+        'proj2-h3': 'Bingo Night Fundraising',
+        'proj2-p': 'On 16 May, 27 June and 22 August 2024, Stichting Prasoro organised three successful Bingo Night events.',
+        'proj2-raised': '\u20ac 2,400 raised', 'proj2-goal': 'goal: \u20ac 3,000',
+        'proj3-h3': 'Bingo Nights: Heartwarming support',
+        'proj3-p': 'Three evenings that together raised SRD 14,000 for the children \u2014 heartwarming support from donors.',
+        'proj3-raised': '\u20ac 1,760 raised', 'proj3-goal': 'goal: \u20ac 2,000',
+        'proj4-badge': 'NEW', 'proj4-h3': 'Moro Skoro, Baka Skoro',
+        'proj4-p': '"More to school, back to school" \u2014 we collect school supplies so every child starts the new school year prepared.',
+        'proj4-raised': '\u20ac 420 raised', 'proj4-goal': 'goal: \u20ac 1,200',
+        'impact-h2': 'What your donation makes possible',
+        'impact-lead': 'Your support is more than a donation; it is an investment in the future of children in need.',
+        'impact1': '<strong>\u20ac25</strong> Helps with basic food and daily necessities for children in care.',
+        'impact2': '<strong>\u20ac50</strong> Contributes to school supplies and educational guidance.',
+        'impact3': '<strong>\u20ac100+</strong> Structurally supports care, safety and development.',
+        'steps-h2': 'How donating works',
+        'steps-lead': 'Simple, transparent and fast. This is how you make a direct difference.',
+        'step1-h3': 'Choose your contribution', 'step1-p': 'Choose an amount that suits your situation. Every contribution helps.',
+        'step2-h3': 'Donate via bank transfer', 'step2-p': 'Transfer your donation to one of the official bank accounts of Stichting Prasoro.',
+        'step3-h3': 'See the impact', 'step3-p': "Through updates and stories you can see how your support changes children's lives.",
+        'verhaal-h2': 'The story of Stichting Prasoro', 'verhaal-h3': 'What makes your support special?',
+        'community-h2': 'Our community',
+        'community-lead': 'Whether you support financially or invest your time and energy \u2014 together we make the difference for children in Suriname.',
+        'donor-h3': 'Donors',
+        'donor-p': 'Are you a donor of Stichting Prasoro? Via our donor portal you can view your contributions, download quarterly reports and manage your details.',
+        'donor-btn-login': 'Login to donor portal', 'donor-btn-new': 'Become a new donor',
+        'volunteer-h3': 'Volunteers',
+        'volunteer-p': 'Would you like to contribute your time and talent to Prasoro? View the project agenda and sign up for activities where we could use extra hands.',
+        'agenda1': 'School supplies campaign \u2014 Moro Skoro, Baka Skoro',
+        'agenda2': 'Bingo Night Fundraising preparation',
+        'agenda3': 'Summer camp for children in Paramaribo',
+        'volunteer-btn-agenda': 'View project agenda', 'volunteer-btn-signup': 'Register as volunteer',
+        'cta-h2': 'Every day counts for a child in need',
+        'cta-p': 'Donate today and directly help with food, education, care and a safe future for children in Suriname.',
+        'wa-tooltip': 'Ask your question via WhatsApp'
+      }
+    };
+
+    function applyLang(lang) {
+      document.documentElement.lang = lang;
+      var t = T[lang];
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.title = lang === 'en'
+        ? 'Stichting Prasoro | Give a Child a Future'
+        : 'Stichting Prasoro | Geef een kind een toekomst';
+      var btn = document.getElementById('langToggle');
+      if (btn) {
+        // legacy — replaced by pill
+      }
+      document.querySelectorAll('.lang-opt').forEach(function (opt) {
+        opt.classList.toggle('active', opt.getAttribute('data-lang') === lang);
+      });
+      try { localStorage.setItem('prasoro-lang', lang); } catch (e) {}
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.lang-opt').forEach(function (opt) {
+        opt.addEventListener('click', function () {
+          applyLang(this.getAttribute('data-lang'));
+        });
+      });
+
+      var ham = document.getElementById('hamburger');
+      var mob = document.getElementById('mobNav');
+      if (ham && mob) {
+        ham.addEventListener('click', function () {
+          var isOpen = mob.classList.toggle('open');
+          ham.classList.toggle('open', isOpen);
+          ham.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        mob.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            mob.classList.remove('open');
+            ham.classList.remove('open');
+            ham.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      var saved = 'nl';
+      try { saved = localStorage.getItem('prasoro-lang') || 'nl'; } catch (e) {}
+      if (saved === 'en') applyLang('en');
+    });
+  })();
+  </script>
+
+  <div class="wa-widget" aria-label="Chat via WhatsApp">
+    <span class="wa-tooltip" data-i18n="wa-tooltip">Stel uw vraag via WhatsApp</span>
+    <a class="wa-bubble"
+       href="https://wa.me/31612345678?text=Hallo%20Stichting%20Prasoro%2C%20ik%20heb%20een%20vraag%20over..."
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat via WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+</html>
