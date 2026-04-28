@@ -4,8 +4,8 @@
   <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nieuws | Stichting Prasoro</title>
-  <meta name="description" content="Het laatste nieuws van Stichting Prasoro – donaties, acties en updates uit Suriname.">
+  <title>Contact | Stichting Prasoro</title>
+  <meta name="description" content="Neem contact op met Stichting Prasoro – telefoon, WhatsApp, adres in Paramaribo en bankgegevens voor donaties.">
   <style>
     :root {
       --bg: #f7f8f6;
@@ -100,32 +100,64 @@
 
     .section { padding: 38px 0 56px; }
 
-    .news-grid { display: grid; grid-template-columns: 1fr; gap: 18px; }
-
-    .news-card {
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+    }
+    .contact-card {
       background: var(--paper); border: 1px solid #e7ece9; border-radius: var(--radius);
-      overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: var(--shadow); padding: 22px; display: flex; flex-direction: column; gap: 10px;
     }
-    .news-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(23,34,29,0.14); }
-    .news-card .news-img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #eef2ee; }
-    .news-body { padding: 18px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
-    .news-meta {
-      display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
-      font-size: 0.82rem; color: var(--muted);
+    .contact-card .icon-box {
+      width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .news-date {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #eef5f0; color: #2c5e44; border-radius: 999px;
-      padding: 3px 10px; font-weight: 700; font-size: 0.78rem;
+    .icon-box.orange { background: #faeee8; color: var(--brand); }
+    .icon-box.green  { background: #e6f3ec; color: var(--green); }
+    .icon-box.blue   { background: #e6eef7; color: #2c5e9b; }
+    .icon-box.wa     { background: #dcfce4; color: #128c4f; }
+
+    .contact-card h3 { margin: 0; font-size: 1.1rem; }
+    .contact-card p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+    .contact-card a.contact-link {
+      color: var(--text); font-weight: 700; font-size: 1.04rem; word-break: break-word;
     }
-    .news-author { font-style: italic; }
-    .news-card h2 { margin: 0; font-size: 1.1rem; line-height: 1.3; color: var(--text); }
-    .news-card p { margin: 0; color: var(--muted); font-size: 0.96rem; }
-    .news-card .read-more {
-      margin-top: auto; color: var(--brand); font-weight: 700; font-size: 0.92rem;
-      display: inline-flex; align-items: center; gap: 6px;
+    .contact-card a.contact-link:hover { color: var(--brand); }
+
+    .form-section {
+      background: var(--paper); border: 1px solid #e7ece9; border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 24px; margin-top: 24px;
     }
+    .form-section h2 { margin: 0 0 6px; font-size: clamp(1.3rem, 5vw, 1.7rem); }
+    .form-section .lead { margin: 0 0 18px; color: var(--muted); font-size: 0.98rem; }
+
+    .form-row { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label { font-size: 0.86rem; font-weight: 700; color: #3b4a43; }
+    .form-field input, .form-field textarea {
+      font-family: inherit; font-size: 1rem; color: var(--text);
+      background: #f7f8f6; border: 1px solid #e2e9e4; border-radius: 12px;
+      padding: 12px 14px; transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .form-field input:focus, .form-field textarea:focus {
+      outline: none; border-color: var(--brand); background: #fff;
+    }
+    .form-field textarea { min-height: 130px; resize: vertical; }
+    .form-actions { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .form-note { color: var(--muted); font-size: 0.86rem; }
+
+    .map-card {
+      margin-top: 24px; background: var(--paper); border: 1px solid #e7ece9; border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .map-card iframe { width: 100%; height: 320px; border: 0; display: block; }
+    .map-card .map-caption { padding: 14px 18px; color: var(--muted); font-size: 0.93rem; }
+
+    .bank-grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 18px; }
+    .bank-card {
+      background: var(--paper); border: 1px solid #e7ece9; border-radius: 14px;
+      padding: 16px; box-shadow: var(--shadow);
+    }
+    .bank-card h4 { margin: 0 0 8px; font-size: 0.95rem; color: var(--brand); letter-spacing: 0.03em; }
+    .bank-card .bank-line { font-size: 0.95rem; color: var(--text); margin: 4px 0; font-variant-numeric: tabular-nums; }
 
     .site-footer { padding: 28px 0 90px; text-align: center; color: #56655e; font-size: 0.92rem; }
 
@@ -158,11 +190,13 @@
       .header-donate { display: inline-flex; }
       .hamburger { display: none; }
       .mob-nav { display: none !important; }
-      .news-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-row.two-col { grid-template-columns: 1fr 1fr; }
+      .bank-grid { grid-template-columns: repeat(2, 1fr); }
       .page-hero { padding: 72px 0 48px; }
     }
     @media (min-width: 1000px) {
-      .news-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-grid { grid-template-columns: repeat(4, 1fr); }
       .sticky-donate { display: none; }
       .site-footer { padding-bottom: 30px; }
     }
@@ -180,8 +214,8 @@
         <a href="/#impact">Impact</a>
         <a href="/#verhaal">Verhaal</a>
         <a href="/bestuur/">Bestuur</a>
-        <a href="/nieuws/" class="active">Nieuws</a>
-        <a href="/contact/">Contact</a>
+        <a href="/nieuws/">Nieuws</a>
+        <a href="/contact/" class="active">Contact</a>
         <a href="/#doneren">Doneren</a>
       </nav>
       <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
@@ -213,147 +247,123 @@
   <main>
     <section class="page-hero">
       <div class="container">
-        <span class="kicker">Nieuws &amp; updates</span>
-        <h1>Verhalen, donaties en acties</h1>
-        <p>Ontdek wat er gebeurt bij Stichting Prasoro – van warme donaties en vrijwilligersacties tot succesvolle fundraisers voor de kinderen in Paramaribo.</p>
+        <span class="kicker">Contact</span>
+        <h1>Neem contact op met ons</h1>
+        <p>Heeft u een vraag, wilt u een donatie doen of zich aanmelden als vrijwilliger? Wij horen graag van u — bel, app of stuur een bericht.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <div class="news-grid">
 
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Truitjes-bedrukt-donatie-300x300.jpeg" alt="Polo shirts met logo Stichting Prasoro">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">22 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Logo Stg Prasoro op uniform door donatie XMS T-shirt Designs en Creative Press Studio</h2>
-              <p>Het personeel van Stichting Prasoro draagt voortaan polo shirts met het logo van de stichting, dankzij een mooie donatie van XMS T-shirt Designs en Creative Press Studio.</p>
-              <span class="read-more">Lees meer →</span>
-            </div>
-          </article>
+        <div class="contact-grid">
 
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Truitjes-donatie-Kirpalanie-1-300x300.jpeg" alt="Kirpalani polo shirts donatie">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">22 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>N.V. Kirpalani ondersteunt Stichting Prasoro met polo shirts voor het personeel</h2>
-              <p>Een lokaal bedrijf droeg professionele polo shirts bij om het personeel van de stichting van een verzorgde uitstraling te voorzien.</p>
-              <span class="read-more">Lees meer →</span>
+          <div class="contact-card">
+            <div class="icon-box orange">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-          </article>
+            <h3>Adres</h3>
+            <p>Stichting Prasoro<br>Kinderdorpweg 2<br>Paramaribo – Suriname</p>
+          </div>
 
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Bingo-night-300x300.jpg" alt="Bingo Night Stichting Prasoro">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">11 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Bingo Nights: Hartverwarmende steun voor Stichting Prasoro</h2>
-              <p>Drie succesvolle Bingo Night avonden leverden samen SRD 14.000 op voor de kinderen — hartverwarmende steun van trouwe donateurs.</p>
-              <span class="read-more">Lees meer →</span>
+          <div class="contact-card">
+            <div class="icon-box green">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92V20a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3.09a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
             </div>
-          </article>
+            <h3>Telefoon</h3>
+            <a class="contact-link" href="tel:+5978616547">(+597) 861-6547</a>
+            <p>Merlien — bereikbaar op werkdagen</p>
+          </div>
 
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Stg-Kyanno-300x300.jpg" alt="Stichting Kyanno levensmiddelen donatie">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">11 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Stichting Kyanno doneert levensmiddelen</h2>
-              <p>Terugkerende voedingsdonaties van een Nederlandse stichting maken dagelijkse zorg voor de kinderen mogelijk.</p>
-              <span class="read-more">Lees meer →</span>
+          <div class="contact-card">
+            <div class="icon-box wa">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
             </div>
-          </article>
+            <h3>WhatsApp</h3>
+            <a class="contact-link" href="https://wa.me/5978616547?text=Hallo%20Stichting%20Prasoro%2C%20ik%20heb%20een%20vraag%20over..." target="_blank" rel="noopener">Chat met ons</a>
+            <p>Snel antwoord — meestal binnen één werkdag</p>
+          </div>
 
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Tuinonderhoud-300x300.jpg" alt="Vrijwillige tuinonderhoud studenten IOL">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">11 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Vrijwillig tuinonderhoud door studenten IOL</h2>
-              <p>Studenten van het IOL hebben hun tijd en energie ingezet voor het onderhoud van het terrein rondom Prasoro.</p>
-              <span class="read-more">Lees meer →</span>
+          <div class="contact-card">
+            <div class="icon-box blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.73 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg>
             </div>
-          </article>
-
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Ventilator-300x300.png" alt="Ventilator donatie Moussi Issa en Lucky Store">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">11 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Moussi Issa en Lucky Store: Frisse lucht en een koele bries voor Prasoro</h2>
-              <p>Drie ventilators werden geschonken om de leefomstandigheden voor de kinderen aanzienlijk te verbeteren.</p>
-              <span class="read-more">Lees meer →</span>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/10/Riders-1-300x300.jpeg" alt="Riders Organisatie Suriname donatie">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">11 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Riders Organisatie Suriname doneert aan Kindertehuis Prasoro</h2>
-              <p>De motorvereniging haalde via een community cookout middelen op voor de kinderen van Stichting Prasoro.</p>
-              <span class="read-more">Lees meer →</span>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2017/03/About-bg.jpg" alt="Donatie Carol van Nijnatten">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">11 okt 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Dank aan Carol van Nijnatten voor zijn onvergetelijke bijdrage</h2>
-              <p>Een gulle donatie van € 1.000 kwam ten goede aan de kinderen die door de stichting worden ondersteund.</p>
-              <span class="read-more">Lees meer →</span>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/06/Kids-met-hun-jeansbroek-300x300.jpg" alt="Goederen donaties pupillen Prasoro">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">28 jun 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Verschillende goederen donaties aan de pupillen van Prasoro</h2>
-              <p>De kinderen ontvingen jeansbroeken, zwemkleding en andere goederen van families uit Suriname en het buitenland.</p>
-              <span class="read-more">Lees meer →</span>
-            </div>
-          </article>
-
-          <article class="news-card">
-            <img class="news-img" src="/wp-content/uploads/2024/06/Donatie-Rotary-Quota-2-1-300x300.jpg" alt="Donatie Rotary Club Paramaribo Quota">
-            <div class="news-body">
-              <div class="news-meta">
-                <span class="news-date">28 jun 2024</span>
-                <span class="news-author">door Marlene Gravenberch</span>
-              </div>
-              <h2>Donatie Rotary Club Paramaribo Quota</h2>
-              <p>De Rotary Club overhandigde een symbolische cheque ter ondersteuning van de initiatieven van de stichting.</p>
-              <span class="read-more">Lees meer →</span>
-            </div>
-          </article>
+            <h3>Facebook</h3>
+            <a class="contact-link" href="https://www.facebook.com/stichtingprasoro/" target="_blank" rel="noopener">@stichtingprasoro</a>
+            <p>Volg ons voor updates over de kinderen en acties</p>
+          </div>
 
         </div>
+
+        <div class="map-card">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-55.21%2C-5.83%2C-55.13%2C-5.78&amp;layer=mapnik&amp;marker=-5.81%2C-55.17"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Locatie Stichting Prasoro – Kinderdorpweg 2, Paramaribo"></iframe>
+          <p class="map-caption">Kinderdorpweg 2, Paramaribo – Suriname.
+            <a href="https://www.openstreetmap.org/?mlat=-5.81&amp;mlon=-55.17#map=13/-5.81/-55.17" target="_blank" rel="noopener" style="color: var(--brand); font-weight: 700;">Bekijk grotere kaart →</a>
+          </p>
+        </div>
+
+        <div class="form-section">
+          <h2>Stuur ons een bericht</h2>
+          <p class="lead">Vul het formulier in en uw e-mailprogramma opent met uw bericht. Wij reageren zo snel mogelijk.</p>
+
+          <form id="contactForm" onsubmit="return submitContact(event)">
+            <div class="form-row two-col">
+              <div class="form-field">
+                <label for="cf-name">Uw naam</label>
+                <input id="cf-name" name="name" type="text" required autocomplete="name" placeholder="Voor- en achternaam">
+              </div>
+              <div class="form-field">
+                <label for="cf-email">E-mailadres</label>
+                <input id="cf-email" name="email" type="email" required autocomplete="email" placeholder="naam@voorbeeld.nl">
+              </div>
+            </div>
+            <div class="form-row" style="margin-top: 14px;">
+              <div class="form-field">
+                <label for="cf-subject">Onderwerp</label>
+                <input id="cf-subject" name="subject" type="text" required placeholder="Waar gaat uw bericht over?">
+              </div>
+            </div>
+            <div class="form-row" style="margin-top: 14px;">
+              <div class="form-field">
+                <label for="cf-message">Uw bericht</label>
+                <textarea id="cf-message" name="message" required placeholder="Schrijf hier uw vraag of opmerking..."></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                Bericht versturen
+              </button>
+              <a class="btn btn-ghost" href="https://wa.me/5978616547?text=Hallo%20Stichting%20Prasoro%2C%20ik%20heb%20een%20vraag%20over..." target="_blank" rel="noopener">
+                Liever via WhatsApp?
+              </a>
+            </div>
+            <p class="form-note" style="margin-top: 12px;">Door te versturen gaat u akkoord met het delen van uw gegevens om uw vraag te beantwoorden.</p>
+          </form>
+        </div>
+
+        <h2 style="margin: 36px 0 6px; font-size: clamp(1.3rem, 5vw, 1.7rem);">Bankgegevens voor donaties</h2>
+        <p style="margin: 0; color: var(--muted); font-size: 0.98rem;">Stichting Prasoro voor het kind in nood — ANBI-status met RSIN <strong>8239.72.562</strong>.</p>
+
+        <div class="bank-grid">
+          <div class="bank-card">
+            <h4>REPUBLIC BANK SURINAME</h4>
+            <p class="bank-line">SRD &nbsp;–&nbsp; 0.1.20.38.6346</p>
+            <p class="bank-line">USD &nbsp;–&nbsp; 0.7.95.07.5137</p>
+            <p class="bank-line">EUR &nbsp;–&nbsp; 0.7.95.07.5218</p>
+            <p class="bank-line" style="color: var(--muted); font-size: 0.86rem;">BIC/SWIFT: RBNKSRPA XXX</p>
+          </div>
+          <div class="bank-card">
+            <h4>HAKRINBANK</h4>
+            <p class="bank-line">SRD &nbsp;–&nbsp; 20.65.82.397</p>
+            <p class="bank-line" style="color: var(--muted); font-size: 0.86rem; margin-top: 12px;">Stichting Prasoro voor het kind in nood<br>Kinderdorpweg 2, Paramaribo – Suriname</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </main>
@@ -381,6 +391,21 @@
   </div>
 
   <script>
+    function submitContact(e) {
+      e.preventDefault();
+      var name = document.getElementById('cf-name').value.trim();
+      var email = document.getElementById('cf-email').value.trim();
+      var subject = document.getElementById('cf-subject').value.trim();
+      var message = document.getElementById('cf-message').value.trim();
+      var body = 'Naam: ' + name + '\n' +
+                 'E-mail: ' + email + '\n\n' +
+                 message;
+      var to = 'info@stichtingprasoro.com';
+      var url = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      window.location.href = url;
+      return false;
+    }
+
     (function () {
       var ham = document.getElementById('hamburger');
       var mob = document.getElementById('mobNav');

@@ -493,76 +493,233 @@
       margin-bottom: 8px;
     }
 
+    .story {
+      position: relative;
+      background:
+        radial-gradient(1200px 400px at 90% -10%, rgba(212,102,61,0.08), transparent 60%),
+        radial-gradient(900px 400px at -10% 110%, rgba(47,139,93,0.07), transparent 60%),
+        var(--bg);
+    }
+
     .story-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 18px;
-      align-items: start;
+      gap: 28px;
+      align-items: center;
     }
 
     .story-visual {
-      border-radius: var(--radius);
+      position: relative;
+      border-radius: 22px;
+      overflow: visible;
+    }
+
+    .story-visual .photo-wrap {
+      position: relative;
+      border-radius: 22px;
       overflow: hidden;
-      border: 1px solid #deebe2;
-      box-shadow: var(--shadow);
-      background: #fff;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,0.7) inset,
+        0 30px 60px -20px rgba(23,34,29,0.35),
+        0 8px 24px -8px rgba(23,34,29,0.18);
+      isolation: isolate;
+    }
+
+    .story-visual .photo-wrap::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(15,28,22,0.35) 100%);
+      pointer-events: none;
     }
 
     .story-visual img {
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
+      display: block;
+    }
+
+    .story-badge {
+      position: absolute;
+      left: -12px; bottom: 22px;
+      background: #fff;
+      border: 1px solid #e8ede9;
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 16px 32px -10px rgba(23,34,29,0.18);
+      display: flex; align-items: center; gap: 12px;
+      max-width: calc(100% - 32px);
+    }
+
+    .story-badge .yr {
+      font-size: 1.55rem; font-weight: 800; color: var(--brand);
+      line-height: 1; letter-spacing: -0.01em;
+    }
+
+    .story-badge .yr-label {
+      font-size: 0.72rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      line-height: 1.2;
+    }
+
+    .story-badge .yr-divider {
+      width: 1px; height: 26px; background: #e4e8e5;
     }
 
     .story-content {
-      background: var(--paper);
+      padding: 0;
+    }
+
+    .story-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--brand); font-weight: 800;
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .story-eyebrow::before {
+      content: ""; display: inline-block;
+      width: 28px; height: 2px; background: var(--brand);
+    }
+
+    .story-content h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.6rem, 5.6vw, 2.35rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+    }
+
+    .story-lead {
+      font-size: 1.08rem;
+      line-height: 1.65;
+      color: #2a3631;
+      margin: 0 0 14px;
+    }
+
+    .story-content p {
+      color: #475852;
+      font-size: 1rem;
+      line-height: 1.65;
+      margin: 0 0 12px;
+    }
+
+    .story-quote {
+      position: relative;
+      margin: 18px 0 22px;
+      padding: 18px 20px 18px 26px;
+      background: linear-gradient(180deg, #fff 0%, #f7faf8 100%);
       border: 1px solid #e6ece8;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 18px;
+      border-left: 4px solid var(--brand);
+      border-radius: 14px;
+      color: #1f2c26;
+      font-size: 1.02rem;
+      font-style: italic;
+      line-height: 1.6;
     }
 
-    .story-content h3 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
+    .story-pillars {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 22px 0 0;
     }
 
-    .story-content p,
-    .story-content li {
-      color: #32423b;
-      font-size: 0.98rem;
+    .pillar {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: #fff;
+      border: 1px solid #e6ece8;
+      border-radius: 14px;
+      padding: 14px 16px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .story-content ul {
-      margin: 8px 0 0;
-      padding-left: 18px;
+    .pillar:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -10px rgba(23,34,29,0.18); }
+
+    .pillar .p-icon {
+      flex-shrink: 0;
+      width: 40px; height: 40px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pillar .p-icon.green  { background: #e6f3ec; color: var(--green); }
+    .pillar .p-icon.orange { background: #faeee8; color: var(--brand); }
+    .pillar .p-icon.yellow { background: #fff4cf; color: #8b6a00; }
+
+    .pillar h4 { margin: 0 0 2px; font-size: 0.98rem; color: var(--text); }
+    .pillar p  { margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.45; }
+
+    .story-stats {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      background: #fff;
+      border: 1px solid #e6ece8;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .story-stat {
+      padding: 16px 12px;
+      text-align: center;
+      border-right: 1px solid #eef2ee;
+    }
+    .story-stat:last-child { border-right: 0; }
+
+    .story-stat .num {
+      display: block;
+      font-size: clamp(1.4rem, 5vw, 1.8rem);
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .story-stat .lbl {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.74rem;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .cta-final {
       background: linear-gradient(130deg, #173328 0%, #244636 52%, #173328 100%);
       color: #fff;
-      border-radius: 20px;
-      padding: 28px 18px;
+      padding: 56px 0 64px;
       text-align: center;
-      box-shadow: var(--shadow);
+      box-shadow: 0 -10px 28px rgba(23, 34, 29, 0.08);
+    }
+
+    .cta-final .cta-inner {
+      width: min(var(--maxw), calc(100% - 32px));
+      margin: 0 auto;
     }
 
     .cta-final h2 {
       margin: 0 0 10px;
+      font-size: clamp(1.6rem, 5.6vw, 2.4rem);
     }
 
     .cta-final p {
-      margin: 0 0 18px;
+      margin: 0 0 22px;
       color: #ecf5ef;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .bank-box {
-      margin-top: 16px;
+      margin-top: 28px;
       text-align: left;
       background: #fff;
       color: #22322c;
-      border-radius: 14px;
-      padding: 14px;
+      border-radius: 16px;
+      padding: 20px 22px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.4);
     }
 
     .bank-box p {
@@ -823,15 +980,16 @@
       }
 
       .story-grid {
-        grid-template-columns: 0.86fr 1.14fr;
+        grid-template-columns: 0.92fr 1.08fr;
+        gap: 56px;
       }
 
       .community-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .story-content {
-        padding: 22px;
+      .story-pillars {
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .sticky-donate {
@@ -856,7 +1014,8 @@
         <a href="#impact">Impact</a>
         <a href="#verhaal" data-i18n="nav-story">Verhaal</a>
         <a href="/bestuur/" data-i18n="nav-board">Bestuur</a>
-        <a href="#donateurs">Community</a>
+        <a href="/nieuws/" data-i18n="nav-news">Nieuws</a>
+        <a href="/contact/" data-i18n="nav-contact">Contact</a>
         <a href="#doneren" data-i18n="nav-donate">Doneren</a>
       </nav>
       <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
@@ -877,7 +1036,8 @@
     <a href="#impact">Impact</a>
     <a href="#verhaal" data-i18n="nav-story">Verhaal</a>
     <a href="/bestuur/" data-i18n="nav-board">Bestuur</a>
-    <a href="#donateurs">Community</a>
+    <a href="/nieuws/" data-i18n="nav-news">Nieuws</a>
+    <a href="/contact/" data-i18n="nav-contact">Contact</a>
     <a href="#doneren" data-i18n="nav-donate">Doneren</a>
     <div class="mob-donate">
       <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
@@ -1035,25 +1195,80 @@
       </div>
     </section>
 
-    <section id="verhaal" class="section">
+    <section id="verhaal" class="section story">
       <div class="container story-grid">
         <figure class="story-visual">
-          <img src="/wp-content/uploads/2024/03/Stichting-Prasoro-NL-1125x1500.png" alt="Stichting Prasoro verhaal en missie">
+          <div class="photo-wrap">
+            <img src="/wp-content/uploads/2024/01/PHOTO-2023-12-06-18-48-54-1024x1024.jpg" alt="Kinderen en team van Stichting Prasoro in Paramaribo">
+          </div>
+          <div class="story-badge">
+            <div>
+              <div class="yr">2006</div>
+              <div class="yr-label" data-i18n="verhaal-badge-since">Sinds</div>
+            </div>
+            <div class="yr-divider"></div>
+            <div>
+              <div class="yr">35</div>
+              <div class="yr-label" data-i18n="verhaal-badge-kids">Kinderen in zorg</div>
+            </div>
+          </div>
         </figure>
 
         <article class="story-content">
-          <h2 data-i18n="verhaal-h2">Het verhaal van Stichting Prasoro</h2>
-          <p>De Stichting draagt de naam "STICHTING PRASORO, VOOR HET KIND IN NOOD" opgericht op 4 augustus 2006. De Stichting is gevestigd te Paramaribo en strekt haar werkzaamheden uit over geheel Suriname. De Stichting is opgericht voor onbepaalde tijd.</p>
-          <p>Stel je een wereld voor waarin elk kind, ongeacht hun verleden, de kans krijgt om te bloeien, omringd door liefde, onderwijs en een veilig thuis. Dit is de belofte die "Stichting Prasoro voor het kind in nood" waarmaakt, elke dag, voor de meest kwetsbare kinderen in Suriname.</p>
-          <p>Sinds 2006 hebben we ons toegewijd aan het bieden van een warme, liefdevolle omgeving aan maximaal 35 kinderen in nood. We bieden hen niet alleen een dak boven hun hoofd, maar ook de hoop op een betere toekomst, gedreven door onderwijs, zorg en toewijding.</p>
-          <p>Uw steun als "Vriend van Stichting Prasoro voor het kind in nood" kan werelden van verschil maken. Het is meer dan een donatie; het is een investering in de toekomst van deze kinderen.</p>
+          <span class="story-eyebrow" data-i18n="verhaal-eyebrow">Ons verhaal</span>
+          <h2 data-i18n="verhaal-h2">Een veilig thuis voor de meest kwetsbare kinderen</h2>
 
-          <h3 data-i18n="verhaal-h3">Wat maakt uw steun bijzonder?</h3>
-          <ul>
-            <li><strong>Regelmatige updates:</strong> Recente nieuwsberichten over vooruitgang, prestaties en activiteiten.</li>
-            <li><strong>Transparantie:</strong> Inzicht in hoe uw bijdrage wordt gebruikt en welke impact die maakt.</li>
-            <li><strong>Dankbaarheid en erkenning:</strong> Uw steun wordt gewaardeerd en zichtbaar gemaakt, als u dat wilt.</li>
-          </ul>
+          <p class="story-lead" data-i18n="verhaal-lead">Stichting Prasoro werd opgericht op 4 augustus 2006 in Paramaribo, met één heldere missie: kinderen in nood een liefdevol thuis, onderwijs en perspectief bieden — overal in Suriname.</p>
+
+          <blockquote class="story-quote" data-i18n="verhaal-quote">"Elk kind verdient de kans om te bloeien — omringd door liefde, onderwijs en een veilig thuis."</blockquote>
+
+          <p data-i18n="verhaal-p1">Al bijna twee decennia zorgen we voor maximaal 35 kinderen tegelijk. We bieden hen niet alleen een dak boven hun hoofd, maar ook structuur, zorg en hoop op een betere toekomst.</p>
+          <p data-i18n="verhaal-p2">Als 'Vriend van Stichting Prasoro' investeert u in die toekomst — direct, transparant en met zichtbare impact.</p>
+
+          <div class="story-pillars">
+            <div class="pillar">
+              <div class="p-icon orange" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="pillar1-h4">Liefde &amp; zorg</h4>
+                <p data-i18n="pillar1-p">Een warm thuis, persoonlijke aandacht en dagelijkse begeleiding.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="p-icon green" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="pillar2-h4">Onderwijs</h4>
+                <p data-i18n="pillar2-p">Schoolspullen, begeleiding en toegang tot kwalitatief onderwijs.</p>
+              </div>
+            </div>
+            <div class="pillar">
+              <div class="p-icon yellow" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
+              </div>
+              <div>
+                <h4 data-i18n="pillar3-h4">Veilig thuis</h4>
+                <p data-i18n="pillar3-p">Een stabiele, beschermde omgeving die structuur en rust biedt.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-stats">
+            <div class="story-stat">
+              <span class="num" data-i18n="stat1-num">19+</span>
+              <span class="lbl" data-i18n="stat1-lbl">Jaar actief</span>
+            </div>
+            <div class="story-stat">
+              <span class="num" data-i18n="stat2-num">35</span>
+              <span class="lbl" data-i18n="stat2-lbl">Kinderen in zorg</span>
+            </div>
+            <div class="story-stat">
+              <span class="num" data-i18n="stat3-num">ANBI</span>
+              <span class="lbl" data-i18n="stat3-lbl">Erkend &amp; transparant</span>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -1127,21 +1342,19 @@
       </div>
     </section>
 
-    <section id="doneren" class="section">
-      <div class="container">
-        <div class="cta-final">
-          <h2 data-i18n="cta-h2">Elke dag telt voor een kind in nood</h2>
-          <p data-i18n="cta-p">Doneer vandaag en help direct mee aan voeding, onderwijs, zorg en een veilige toekomst voor kinderen in Suriname.</p>
-          <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
+    <section id="doneren" class="cta-final">
+      <div class="cta-inner">
+        <h2 data-i18n="cta-h2">Elke dag telt voor een kind in nood</h2>
+        <p data-i18n="cta-p">Doneer vandaag en help direct mee aan voeding, onderwijs, zorg en een veilige toekomst voor kinderen in Suriname.</p>
+        <a class="btn btn-primary" href="#doneren" data-i18n="cta-donate">Doneer nu</a>
 
-          <div class="bank-box">
-            <p><strong>REPUBLIC BANK SURINAME</strong></p>
-            <p>SRD - 0.1.20.38.6346<br>USD - 0.7.95.07.5137<br>EUR - 0.7.95.07.5218</p>
-            <p>BIC/SWIFT: RBNKSRPA XXX</p>
-            <p><strong>HAKRINBANK - SRD - 20.65.82.397</strong></p>
-            <p>Stichting Prasoro voor het kind in nood, Kinderdorpweg 2, Paramaribo - Suriname</p>
-            <p>ANBI status en sinds 2012 RSIN fiscaal nummer: <strong>8239.72.562</strong>.</p>
-          </div>
+        <div class="bank-box">
+          <p><strong>REPUBLIC BANK SURINAME</strong></p>
+          <p>SRD - 0.1.20.38.6346<br>USD - 0.7.95.07.5137<br>EUR - 0.7.95.07.5218</p>
+          <p>BIC/SWIFT: RBNKSRPA XXX</p>
+          <p><strong>HAKRINBANK - SRD - 20.65.82.397</strong></p>
+          <p>Stichting Prasoro voor het kind in nood, Kinderdorpweg 2, Paramaribo - Suriname</p>
+          <p>ANBI status en sinds 2012 RSIN fiscaal nummer: <strong>8239.72.562</strong>.</p>
         </div>
       </div>
     </section>
@@ -1149,7 +1362,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2024 Stichting Prasoro | Alle Rechten Voorbehouden</p>
+      <p>© 2026 Stichting Prasoro | Alle Rechten Voorbehouden</p>
       <p><a href="https://www.facebook.com/stichtingprasoro/" target="_blank" rel="noopener">Volg ons op Facebook</a></p>
     </div>
   </footer>
@@ -1162,7 +1375,7 @@
   (function () {
     var T = {
       nl: {
-        'nav-projects': 'Projecten', 'nav-story': 'Verhaal', 'nav-board': 'Bestuur', 'nav-donate': 'Doneren',
+        'nav-projects': 'Projecten', 'nav-story': 'Verhaal', 'nav-board': 'Bestuur', 'nav-news': 'Nieuws', 'nav-contact': 'Contact', 'nav-donate': 'Doneren',
         'cta-donate': 'Doneer nu',
         'hero-kicker': 'Sinds 2006 actief in Suriname',
         'hero-h1': 'Geef een kind een toekomst.',
@@ -1195,7 +1408,19 @@
         'step1-h3': 'Kies je bijdrage', 'step1-p': 'Kies een bedrag dat past bij uw situatie. Elke bijdrage helpt.',
         'step2-h3': 'Doneer via bankrekening', 'step2-p': 'Maak uw donatie over naar een van de offici\u00eble rekeningen van Stichting Prasoro.',
         'step3-h3': 'Zie de impact terug', 'step3-p': 'Via updates en verhalen ziet u hoe uw steun het leven van kinderen verandert.',
-        'verhaal-h2': 'Het verhaal van Stichting Prasoro', 'verhaal-h3': 'Wat maakt uw steun bijzonder?',
+        'verhaal-eyebrow': 'Ons verhaal',
+        'verhaal-h2': 'Een veilig thuis voor de meest kwetsbare kinderen',
+        'verhaal-lead': 'Stichting Prasoro werd opgericht op 4 augustus 2006 in Paramaribo, met één heldere missie: kinderen in nood een liefdevol thuis, onderwijs en perspectief bieden — overal in Suriname.',
+        'verhaal-quote': '“Elk kind verdient de kans om te bloeien — omringd door liefde, onderwijs en een veilig thuis.”',
+        'verhaal-p1': 'Al bijna twee decennia zorgen we voor maximaal 35 kinderen tegelijk. We bieden hen niet alleen een dak boven hun hoofd, maar ook structuur, zorg en hoop op een betere toekomst.',
+        'verhaal-p2': 'Als ‘Vriend van Stichting Prasoro’ investeert u in die toekomst — direct, transparant en met zichtbare impact.',
+        'verhaal-badge-since': 'Sinds', 'verhaal-badge-kids': 'Kinderen in zorg',
+        'pillar1-h4': 'Liefde & zorg', 'pillar1-p': 'Een warm thuis, persoonlijke aandacht en dagelijkse begeleiding.',
+        'pillar2-h4': 'Onderwijs', 'pillar2-p': 'Schoolspullen, begeleiding en toegang tot kwalitatief onderwijs.',
+        'pillar3-h4': 'Veilig thuis', 'pillar3-p': 'Een stabiele, beschermde omgeving die structuur en rust biedt.',
+        'stat1-num': '19+', 'stat1-lbl': 'Jaar actief',
+        'stat2-num': '35', 'stat2-lbl': 'Kinderen in zorg',
+        'stat3-num': 'ANBI', 'stat3-lbl': 'Erkend & transparant',
         'community-h2': 'Onze gemeenschap',
         'community-lead': 'Of u nu financieel steunt of tijd en energie inzet \u2014 samen maken we het verschil voor kinderen in Suriname.',
         'donor-h3': 'Donateurs',
@@ -1212,7 +1437,7 @@
         'wa-tooltip': 'Stel uw vraag via WhatsApp'
       },
       en: {
-        'nav-projects': 'Projects', 'nav-story': 'Story', 'nav-board': 'Board', 'nav-donate': 'Donate',
+        'nav-projects': 'Projects', 'nav-story': 'Story', 'nav-board': 'Board', 'nav-news': 'News', 'nav-contact': 'Contact', 'nav-donate': 'Donate',
         'cta-donate': 'Donate now',
         'hero-kicker': 'Active in Suriname since 2006',
         'hero-h1': 'Give a child a future.',
@@ -1245,7 +1470,19 @@
         'step1-h3': 'Choose your contribution', 'step1-p': 'Choose an amount that suits your situation. Every contribution helps.',
         'step2-h3': 'Donate via bank transfer', 'step2-p': 'Transfer your donation to one of the official bank accounts of Stichting Prasoro.',
         'step3-h3': 'See the impact', 'step3-p': "Through updates and stories you can see how your support changes children's lives.",
-        'verhaal-h2': 'The story of Stichting Prasoro', 'verhaal-h3': 'What makes your support special?',
+        'verhaal-eyebrow': 'Our story',
+        'verhaal-h2': 'A safe home for the most vulnerable children',
+        'verhaal-lead': 'Stichting Prasoro was founded on 4 August 2006 in Paramaribo, with one clear mission: to give children in need a loving home, education and perspective — anywhere in Suriname.',
+        'verhaal-quote': '“Every child deserves the chance to flourish — surrounded by love, education and a safe home.”',
+        'verhaal-p1': 'For nearly two decades we have cared for up to 35 children at a time. We offer them not just a roof, but structure, care and hope for a better future.',
+        'verhaal-p2': 'As a ‘Friend of Stichting Prasoro’ you invest in that future — directly, transparently and with visible impact.',
+        'verhaal-badge-since': 'Since', 'verhaal-badge-kids': 'Children in care',
+        'pillar1-h4': 'Love & care', 'pillar1-p': 'A warm home, personal attention and daily guidance.',
+        'pillar2-h4': 'Education', 'pillar2-p': 'School supplies, support and access to quality education.',
+        'pillar3-h4': 'Safe home', 'pillar3-p': 'A stable, protected environment that brings structure and calm.',
+        'stat1-num': '19+', 'stat1-lbl': 'Years active',
+        'stat2-num': '35', 'stat2-lbl': 'Children in care',
+        'stat3-num': 'ANBI', 'stat3-lbl': 'Certified & transparent',
         'community-h2': 'Our community',
         'community-lead': 'Whether you support financially or invest your time and energy \u2014 together we make the difference for children in Suriname.',
         'donor-h3': 'Donors',
